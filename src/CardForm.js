@@ -1,13 +1,13 @@
 import React from 'react';
 
 class CardForm extends React.Component {
-  state = { front: '', back: '', nextId: 1 }
+  state = { front: '', back: '', id: 1 }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { front, back, nextId } = this.state;
-    const card = {front, back, id: nextId};
-    this.setState({ front: '', back: '', nextId: nextId + 1 });
+    const { front, back, id } = this.state;
+    const card = {front, back, id: id};
+    this.setState({ front: '', back: '', id: id + 1 });
     this.props.addCard(card);
   }
 

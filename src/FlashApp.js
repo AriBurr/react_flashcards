@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './Card';
 import CardForm from './CardForm';
+import Cards from './Cards';
 
 export class FlashApp extends React.Component {
   state = { cards: [] }
@@ -14,7 +14,7 @@ export class FlashApp extends React.Component {
     return (
       <div>
         <CardForm addCard={this.addCard} />
-        <Card cards={this.state.cards}  />
+        <Cards cards={this.state.cards}  />
       </div>
     )
   }

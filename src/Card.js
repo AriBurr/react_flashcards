@@ -1,39 +1,21 @@
-import React from 'react';
+import React from 'react'
 
 class Card extends React.Component {
   state = { hide: true }
 
-  toggleShow = (id) => {
+  toggleShow = () => {
     let hide = this.state.hide ? false : true
     this.setState({ hide })
   }
 
   render () {
-
-    let cards = this.props.cards.map (card => {
-      let id = card.id;
-      if (this.state.hide) {
-        return (
-          <div key={id}>
-            { card.front }
-            <button onClick={this.toggleShow(id)} >Flip</button>
-          </div>
-        );
-      } else {
-        return (
-          <div key={id}>
-            { card.back }
-            <button onClick={this.toggleShow(id)} >Flip</button>
-          </div>
-        );
-      }
-    });
-
+    const { hide } = this.state;
     return (
       <div>
-        { cards }
+        <h3>{ hide ? this.props.front : this.props.back }</h3>
+        <button onClick={this.toggleShow} >Flip</button>
       </div>
-    )
+    );
 
   }
 }
